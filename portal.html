@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="assets/css/style.css?dplv5=1.0">
+	<link rel="stylesheet" href="assets/css/awesome.css?dplv5=1.0">
+	<title>Login Portal</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="assets/js/config.js?dplv5=1.0"></script>
+</head>
+<body id="loginBody">
+    <div class="main">
+		<div class="banner">
+			<img id="bannerImg" src="assets/MainPic.PNG"/>
+			<div class="overlay">
+				<div class="btm-shadow"></div>
+			</div>
+		</div>
+		<div class="wrapper">
+			<div id="Home">
+				<div class="time-legend time-row" id="timeleft">
+					<div class="legend-label"><span class="conn-stat"></span>
+					</div>
+					<div class="time-wrapper timeleft">
+						<span id="remainTime">
+							<div class="d-flex flex-fill align-content-stretch">
+								<div class="inner-wrapper">
+									<div id="min">0</div>
+									<div>minutes</div>
+								</div>
+							<div class="inner-wrapper">
+								<div id="sec">0</div>
+								<div>seconds</div>
+							</div>
+							</div>
+						</span>
+					</div>
+				</div>
+				<div>
+              </div>
+				<div class="btn-row btn-group2">
+					<button id="vendoselect" class="btn-small">Insert Coin</button>
+				</div>
+				<div class="btn-row btn-group2">
+					<button id="pauseTimeBtn" class="btn-small">Pause Time</button>
+				</div>
+				<div class="btn-row btn-group2">
+					<button  id="promoRateBtn" class="btn-small">Wifi Rates</button>
+				</div>
+				<div id="voucherForm" class="btn-row">
+					<div class="btn-group2">
+						<div class="d-flex flex-fill align-content-stretch">
+						<input disabled type="text" id="username" placeholder="Please Wait...">
+						<button  id="vouLoginBtn" style="width:35%;border-radius:0px 5px 5px 0px" class="btn-small">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="insertCoinModal" class="no-display">
+				<h1>Please Insert Coin</h1>
+				<div id="noticeDiv" style="display: none">
+						<center>
+							<h4 id="noticeText">Reading coin, please wait</h4>
+						</center>
+				</div>
+				<div id="vcCodeDiv" class="no-display inscoinholder vcCodeHolder">
+					<span style="color: #747d8c">Your code is</span><br>
+					<span id="codeGeneratedBlock">
+						<span id="codeGenerated" style="font-size: 35px; font-weight: bold; color: #4cd137">*****</span>
+					</span>
+				</div>
+				<span class="coin-wrapper">
+					<span class="coin-curr">Total Amount</span>
+			        &#8369;<span id="totalCoin" class="rate-curr">0</span>
+				</span>
+				<div id="totalTimeDiv" class="time-wrapper timeleft">
+					<span id="totalTime">
+						<div class="d-flex flex-fill align-content-stretch">
+							<div class="inner-wrapper">
+								<div id="min">0</div>
+								<div>minutes</div>
+							</div>
+							<div class="inner-wrapper">
+								<div id="sec">0</div>
+								<div>seconds</div>
+							</div>
+						</div>
+					</span>
+				</div>
+				<div class="no-display" id="expectedCoinDiv" style="">
+					<span style="color: #747d8c">Expected Coin <span id="expectedCoin"></span></span>
+				</div>
+				<div class="progress-header">Waiting for payment (<span id="progress-msg"></span>)</div>
+				<div class="progress insert-progress" id="progressDiv">
+					<div class="bar"></div>
+				</div>
+				<div id="convertVoucherBlockDiv" class="btn-row">
+					<div class="btn-group2">
+						<div class="d-flex flex-fill align-content-stretch">
+						<input type="text" id="convertVoucherCode" class="connected" placeholder="Convert unused voucher">
+						<button  id="convertBtn" style="width:35%;border-radius:0px 5px 5px 0px;color:#1e7522;-webkit-box-shadow:0px 3px 0px 0px #4cd137;box-shadow:0px 3px 0px 0px #4cd137" class="btn-small">Convert</button>
+						</div>
+					</div>
+				</div>
+				<div class="btn-row btn-group2">
+					<button id="done-paying" >Cancel</button>
+				</div>
+			</div>
+			<div id="promoRatesModal" class="no-display">
+						<h2 class="header-tittle">Wifi Rates</h2>
+							<center>	
+								<div class="rate-row no-promo">
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<td>Amount</td>
+													<td>Time</td>
+													<td>Validity</td>
+												</tr>
+											</thead>
+											<tbody id="ratesBody"></tbody>
+										</table>
+									</div>
+								</div>						
+							</center>
+						<div class="btn-row btn-group2">
+							<button class="btn-small backrates">Back</button>
+						</div>
+			</div>
+			<div id="SelectVendo" class="no-display">
+						<div class="SelectVendo">
+								<h2 class="header-tittle">Select Your Location</h2>
+									<br>
+									<div id="vendoSelectDiv">
+									<select class="form-control" name="vendoSelected" id="vendoSelected" ></select>
+								</div>
+						</div>
+					<div class="btn-row btn-group2">
+						<button class="btn-small backvendo">Back</button>
+					</div>
+			</div>
+			     <br>
+				<span id="ExP" style="color:#4cd137">Expiration: <span id="exp">Loading...</span></span><br>
+			    <small>IP: <span id="device-ip" class="uIp">$(ip)</span> | MAC: <span id="device-mac" class="uIp">$(mac)</span></small>
+			<div class="footer">
+				Powered by: <a id="cstfooter" href="https://www.facebook.com/james.villasor.17">JamesTech v4.4</a> &copy; All rights reserved <span id="currentYear"></span>
+			</div>
+			<input type="hidden" id="interfaceName" value="$(interface-name)">
+			<input type="hidden" id="sessiontime" value="$(session-time-left-secs)">
+			<input type="hidden" id="nouptime" value="$(username)">
+			<input type="hidden" id="user">
+			<input type="hidden" id="userpass">
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/toastr.min.js"></script>
+			<script src="assets/js/core.js?dplv5=1.0"></script>
+			<script>
+            document.addEventListener('DOMContentLoaded', function(){document.getElementById('currentYear').textContent=new Date().getFullYear()});
+            </script>
+			<div id="loaderDiv"></div>
+        </div>
+	</div>
+</body>
+</html>
